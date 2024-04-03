@@ -2,40 +2,11 @@
 
 import os
 import time 
-import os #Importamos esta libreria para hacer uso de la funcion os.sytem
+import os    #Importamos esta libreria para hacer uso de la funcion os.sytem
 import time  # Importamos esta libreria para hacer uso de la funcion time.sleep
 
-bienvenida = "Bienvenido Academia de Manejo CR"
-
-#Aqui centramos el texto de bienvenida con la funcion center y le damos de referencia parametros 
-print("\n"+bienvenida.center(200, " "))
-
-#Aqui el numero se va registrar
-nombre_usuario = input ("Ingrese su nombre: ")
-correo_electronico = input ("Ingrese su correo electronico: ")
-num_telefono = int (input ("Ingrese su numero de telefono: "))
-
-#El sistema hace una breve espera antes de limpir consola
-time.sleep (0.5)
-os.system ("cls")
-os.system ("cls") #Esta funcion nos limpia consola
-
-print ("Academica de Manejo CR".center(200," "))
-
-
-
-#MenuPrincipal
-opcion = 1
-menu = print("1. Curso Teorico"
-          "\n2. Clases de Manejo"
-          "\n3. Dictamen Medico"
-          "\n4. Salir"
-          )
-opcion = int (input ("\nSeleccionar una opcion: "))
-
-
-#CursoTeorico
-if opcion == 1:
+def cursoTeorico (nombre_usuario,correo_electronico,num_telefono):
+    os.system("cls")
     Reserva = 0
     NumFactura = 1000000000
     from datetime import datetime
@@ -100,10 +71,14 @@ if opcion == 1:
         print("Numero de Reserva: N°",Reserva)
         print("Precio:",CostoTotal) 
     print("Gracias por utilizar nuestros servicios!")
+    print("")
+    os.system("pause")
+    os.system("cls")
+    return Menu ()
 
-
-#Clases de Manejo
-elif opcion == 2:
+    
+def clasesManejo (nombre_usuario,correo_electronico,num_telefono):
+    os.system("cls")
     Reserva = 0
     NumFactura = 1000000000
     from datetime import datetime
@@ -172,11 +147,14 @@ elif opcion == 2:
         print("Numero de Reserva: N°",Reserva)
         print("Precio:",CostoTotal)
     print("Gracias por utilizar nuestros servicios!")
+    print("")
+    os.system("pause")
+    os.system("cls")
+    return Menu ()
         
 
-#Dictamen Medico
-    
-elif opcion == 3:
+def dictamenMedico (nombre_usuario,correo_electronico,num_telefono):
+    os.system("cls")
     Reserva = 0
     NumFactura = 1000000000
     from datetime import datetime
@@ -201,7 +179,63 @@ elif opcion == 3:
     #Factura elecronica sin costo?
 
     print("Gracias por utilizar nuestros servicios!")
+ 
     
-#Salir
-elif opcion == 4:
-    print("\nGracias por usar nuestro programa\n")
+def Menu ():
+    
+    os.system ("cls")
+
+    bienvenida = "Bienvenido Academia de Manejo CR"
+
+    #Aqui centramos el texto de bienvenida con la funcion center y le damos de referencia parametros 
+    print("\n"+bienvenida.center(200, " "))
+
+
+
+    #Aqui el numero se va registrar
+    nombre = input ("Ingrese su nombre: ")
+    correo_electronico = input ("Ingrese su correo electronico: ")
+    num_telefono = int (input ("Ingrese su numero de telefono: "))
+
+    #El sistema hace una breve espera antes de limpir consola
+    time.sleep (0.5)
+    os.system ("cls")
+    os.system ("cls") #Esta funcion nos limpia consola
+
+    print ("Academica de Manejo CR".center(200," "))
+
+
+
+    #MenuPrincipal
+    opcion = 1
+    menu = print("1. Curso Teorico"
+            "\n2. Clases de Manejo"
+            "\n3. Dictamen Medico"
+            "\n4. Salir"
+            )
+    opcion = int (input ("\nSeleccionar una opcion: "))
+    
+    #Opcion Curso Teorico 
+    if opcion == 1: 
+        cursoTeorico (nombre,correo_electronico,num_telefono)
+        
+    #Opcion Clase Manejo
+    elif opcion == 2: 
+        clasesManejo (nombre,correo_electronico,num_telefono)
+    #Opcion Dictamen Medico
+    elif opcion == 3:
+        dictamenMedico (nombre,correo_electronico,num_telefono)
+    #Opcion Salir
+    elif opcion == 4 :
+        print("\nGracias por usar nuestro programa\n")
+    print("")
+    os.system("pause")
+    os.system("cls")
+    return Menu ()
+    
+
+if __name__ == "__main__":
+    Menu()
+        
+
+
